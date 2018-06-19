@@ -1,0 +1,33 @@
+{
+  "name": "GE-POWER-UNIVERSAL-TESTER",
+  "version": "1.0.0",
+  "description": "Examples for \"Introduction to Cucumber.js\"",
+  "main": "index.js",
+  "scripts": {
+    "simple": "cucumber-js simple/features -r simple/steps",
+    "background": "cucumber-js background/features -r background/steps",
+    "outline": "cucumber-js outline/features -r outline/steps",
+    "datatable": "cucumber-js datatable/features -r datatable/steps",
+    "hooks": "cucumber-js hooks/features -r hooks/steps",
+    "world": "cucumber-js world/features -r world/steps",
+    "events": "cucumber-js events/features -r events/steps",
+    "baseline": "cucumber-js baseline/features -r baseline/steps -f json:test/report/cucumber_report.json && node report-gen.js"
+  },
+  "author": "Graham Cox <graham@grahamcox.co.uk>",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "cucumber": "^4.2.1",
+    "cucumber-html-reporter": "^4.0.2",
+    "del": "^3.0.0",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-shell": "^2.1.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-delete-directory-files": "0.0.2",
+    "gulp-shell": "^0.6.5",
+    "mkdirp": "^0.5.1",
+    "node-fetch": "^2.1.2"
+  }
+}
