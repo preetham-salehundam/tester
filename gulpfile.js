@@ -1,6 +1,10 @@
 const gulp = require('gulp')
 const shell = require('gulp-shell')
 const path = require('path')
+const fs = require('fs')
+const copy = require('gulp-contrib-copy')
+const run  = require('gulp-run-command').default
+
 // var delDirectoryFiles = require('gulp-delete-directory-files');
 // var del = require('del');
 var gulpClean = require('gulp-clean')
@@ -54,8 +58,34 @@ gulp.task('clean-reports', function(){
     .pipe(gulpClean())
 })
 
-gulp.task('gen-reports',["baseline"],function(){
+// generate html report from json
+gulp.task('gen-reports-baseline',["baseline"],function(){
   reporter.generate(reporterOptions);
 })
 
+gulp.task('copy-baseline-features',function(){
+  let sources = path.join('baseline','features','*.*'), dest = path.join('sandbox','custom_tests','features');
+  return gulp.src(sources).pipe(copy()).pipe(gulp.dest(dest))
+})
+
+gulp.task('copy-baseline-steps',['copy-baseline-features'],function(){
+  let sources = path.join('baseline','steps','*.*'), dest = path.join('sandbox','custom_tests','steps');
+  return gulp.src(sources).pipe(copy()).pipe(gulp.dest(dest))
+})
+
+// gulp.task('sandbox-tests', ['create-report-folder'], 
+//   run('cucumber-js sandbox/custom_tests/features -r sandbox/custom_tests/steps -f json:'+reporterOptions.jsonFile, {ignoreErrors: true})
+// )
+
+gulp.task('sandbox-tests', ['create-report-folder'],()=>{
+  run('cucumber-js sandbox/custom_tests/features -r sandbox/custom_tests/steps -f json:'+reporterOptions.jsonFile, {
+    ignoreErrors: true
+  })
+} )
+  
+
+// generate html report from json
+gulp.task('gen-reports-sandbox',["sandbox-tests"],function(){
+  reporter.generate(reporterOptions);
+})
 

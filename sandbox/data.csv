@@ -1,0 +1,4 @@
+|api|method|schema|secured|
+|"{{hostname}}/v1/evn/catalog/coverages"|"GET"|"full-coverage-schema.json"|true
+|"{{hostname}}/v1/evn/catalog/coverages/{{fuelId}}"|"GET"|"fuel-coverage-schema.json"|true
+|"{{hostname}}/v1/evn/catalog/coverages/assets?fuelId={{fuelId}}"|"GET"|"asset-fuel-coverage-schema.json"|true

@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "fuelCoverage": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "fuelName": {
+              "type": "string"
+            },
+            "analyticCount": {
+              "type": "integer"
+            },
+            "failureModeCount": {
+              "type": "integer"
+            },
+            "lowComponentCount": {
+              "type": "integer"
+            },
+            "highMediumPercent": {
+              "type": "number"
+            },
+            "highMedComponentCount": {
+              "type": "integer"
+            },
+            "highMedComponentPercent": {
+              "type": "number"
+            },
+            "lowComponentPercent": {
+              "type": "number"
+            },
+            "totalComponentCount": {
+              "type": "integer"
+            },
+            "fuelId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fuelName",
+            "analyticCount",
+            "failureModeCount",
+            "lowComponentCount",
+            "highMediumPercent",
+            "highMedComponentCount",
+            "highMedComponentPercent",
+            "lowComponentPercent",
+            "totalComponentCount",
+            "fuelId"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "fuelCoverage"
+  ]
+}

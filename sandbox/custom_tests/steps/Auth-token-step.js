@@ -1,9 +1,8 @@
 var {Given, When, Then} = require('cucumber');
 var expect = require('chai').expect
 var fetch = require('node-fetch')
-var {getUAAToken} = require.main.require('./helpers/Uaa-helper')//require('../../helpers/Uaa-helper')
+var {getUAAToken} = require('../../../helpers/Uaa-helper')
 var credentials = new Buffer("login-client-id:D0ckerU$erL0gin").toString('base64')
-console.log(credentials);
 let response,status;
 
 Given('a valid token is generated from UAA', function(){
@@ -14,6 +13,8 @@ Given('a valid token is generated from UAA', function(){
 When('a {string} request to  {string} contains auth headers with bearer token', function(method, api){
    
     this.uaa_response.then((response) => {
+        this.token = response;
+        console.log(this.token);
         return fetch(api,{method:method ,headers: {"authorization": "Bearer "+this.token}}).then(function(res){
         status = res.status
     })} )

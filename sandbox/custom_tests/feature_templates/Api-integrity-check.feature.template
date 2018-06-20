@@ -1,0 +1,13 @@
+Feature: Api sanity test
+
+   this test is to check the integrity of the API i/p o/p
+
+Background: UAA token generated
+Given auth token available
+
+Scenario Outline: validate the schema of the response
+When <method> request is made to <api> 
+Then the response body schema <schema> should be a valid
+
+Examples:
+{{examples}}

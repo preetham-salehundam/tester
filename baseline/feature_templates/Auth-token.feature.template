@@ -6,8 +6,8 @@ Feature: UAA authorization bearer token check
    Given a valid token is generated from UAA
 
    Scenario Outline: check for a appropriate authorization header in the request
-   When a request is made to the <api>
-   Then the request should contain authorization header with bearer token 
+   When a <method> request to  <api> contains auth headers with bearer token
+   Then the API shouldn't return unauthorized status 
 
    Examples:
    {{examples}}

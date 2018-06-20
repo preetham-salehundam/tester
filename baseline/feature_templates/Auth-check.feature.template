@@ -4,3 +4,6 @@ Feature: Api authroization check
    Scenario: Check if API is secured.
    When API is accessed
    Then API should return 401 unauthorizied status
+   
+   Examples:
+    {{examples}}
